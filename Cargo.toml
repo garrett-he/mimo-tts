@@ -1,0 +1,34 @@
+[package]
+name = "mimo-tts-mcp"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+description = "MCP server that generates audio via the Xiaomi MiMo TTS service."
+keywords = ["mcp", "tts", "text-to-speech", "audio", "mimo"]
+repository = "https://github.com/garrett-he/mimo-tts-mcp"
+homepage = "https://github.com/garrett-he/mimo-tts-mcp"
+documentation = "https://github.com/garrett-he/mimo-tts-mcp/blob/main/README.md"
+
+authors = ["Garrett HE <garrett.he@outlook.com>"]
+
+
+[dependencies]
+anyhow = "1.0.104"
+base64 = "0.23.1"
+clap = { version = "4.6.7", features = ["derive"] }
+dirs = "7.0.0"
+reqwest = { version = "0.13.5", default-features = false, features = ["json", "native-tls"] }
+rmcp = { version = "3.8.0", features = ["server", "transport-io", "macros", "schemars"] }
+schemars = "1.2.3"
+serde = { version = "1.0.229", features = ["derive"] }
+serde_json = "1.0.154"
+thiserror = "2.0.21"
+tokio = { version = "1.54.1", features = ["rt-multi-thread", "macros"] }
+
+[dev-dependencies]
+tempfile = "3.27.0"
+
+[dev-dependencies.cargo-husky]
+version = "1"
+default-features = false
+features = ["user-hooks"]
