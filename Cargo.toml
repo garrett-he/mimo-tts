@@ -1,13 +1,13 @@
 [package]
-name = "mimo-tts-mcp"
+name = "mimo-tts"
 version = "0.1.0"
 edition = "2021"
 license = "MIT"
-description = "MCP server that generates audio via the Xiaomi MiMo TTS service."
+description = "Command-line tool that generates audio via the Xiaomi MiMo TTS service."
 keywords = ["mcp", "tts", "text-to-speech", "audio", "mimo"]
-repository = "https://github.com/garrett-he/mimo-tts-mcp"
-homepage = "https://github.com/garrett-he/mimo-tts-mcp"
-documentation = "https://github.com/garrett-he/mimo-tts-mcp/blob/main/README.md"
+repository = "https://github.com/garrett-he/mimo-tts"
+homepage = "https://github.com/garrett-he/mimo-tts"
+documentation = "https://github.com/garrett-he/mimo-tts/blob/main/README.md"
 
 authors = ["Garrett HE <garrett.he@outlook.com>"]
 

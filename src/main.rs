@@ -1,16 +1,16 @@
-//! Command line interface of mimo-tts-mcp.
+//! Command line interface of mimo-tts.
 
 use std::path::PathBuf;
 use std::process::ExitCode;
 
 use clap::{Parser, Subcommand};
 
-use mimo_tts_mcp::{config, server, tts, voices};
+use mimo_tts::{config, server, tts, voices};
 
 /// Command line arguments of the executable.
 #[derive(Debug, Parser)]
 #[command(
-    name = "mimo-tts-mcp",
+    name = "mimo-tts",
     version,
     about = "Generate speech audio with the Xiaomi MiMo TTS service."
 )]

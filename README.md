@@ -1,9 +1,10 @@
-# mimo-tts-mcp
+# mimo-tts
 
-[![license](https://img.shields.io/badge/license-MIT-blue)](https://github.com/garrett-he/mimo-tts-mcp/blob/main/LICENSE)
-[![ci](https://github.com/garrett-he/mimo-tts-mcp/actions/workflows/ci.yml/badge.svg)](https://github.com/garrett-he/mimo-tts-mcp/actions/workflows/ci.yml)
+[![license](https://img.shields.io/badge/license-MIT-blue)](https://github.com/garrett-he/mimo-tts/blob/main/LICENSE)
+[![ci](https://github.com/garrett-he/mimo-tts/actions/workflows/ci.yml/badge.svg)](https://github.com/garrett-he/mimo-tts/actions/workflows/ci.yml)
 
-MCP server that generates audio via the Xiaomi MiMo TTS service.
+Command-line tool that generates audio via the Xiaomi MiMo TTS service. The
+binary can also run as an MCP server over stdio.
 
 ## Requirements
 
@@ -13,7 +14,7 @@ MCP server that generates audio via the Xiaomi MiMo TTS service.
 ## Configuration
 
 Settings come from environment variables first and fall back to the JSON file at
-`~/.mimo-tts-mcp/config.json` (override its location with `MIMO_TTS_MCP_CONFIG`):
+`~/.mimo-tts/config.json` (override its location with `MIMO_TTS_CONFIG`):
 
 ```json
 {
@@ -28,11 +29,11 @@ Settings come from environment variables first and fall back to the JSON file at
 | Variable | Purpose |
 | --- | --- |
 | `MIMO_API_KEY` | API key; takes precedence over the config file |
-| `MIMO_TTS_MCP_CONFIG` | Path of the config file |
-| `MIMO_TTS_MCP_BASE_URL` | API base URL, defaults to `https://api.xiaomimimo.com/v1` |
-| `MIMO_TTS_MCP_MODEL` | Model id, defaults to `mimo-v2.5-tts` |
-| `MIMO_TTS_MCP_VOICE` | Default preset voice id, defaults to `mimo_default` |
-| `MIMO_TTS_MCP_AUDIO_FORMAT` | Audio format, either `wav` or `pcm16` |
+| `MIMO_TTS_CONFIG` | Path of the config file |
+| `MIMO_TTS_BASE_URL` | API base URL, defaults to `https://api.xiaomimimo.com/v1` |
+| `MIMO_TTS_MODEL` | Model id, defaults to `mimo-v2.5-tts` |
+| `MIMO_TTS_VOICE` | Default preset voice id, defaults to `mimo_default` |
+| `MIMO_TTS_AUDIO_FORMAT` | Audio format, either `wav` or `pcm16` |
 
 Generated audio is written to the current directory unless the CLI receives an
 `--output` path; a path pointing at a directory receives a timestamped file name.
@@ -52,8 +53,8 @@ The server speaks MCP over stdio. Register the built binary with an MCP client:
 ```json
 {
   "mcpServers": {
-    "mimo-tts-mcp": {
-      "command": "path/to/mimo-tts-mcp",
+    "mimo-tts": {
+      "command": "path/to/mimo-tts",
       "args": ["serve"]
     }
   }

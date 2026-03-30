@@ -11,17 +11,17 @@ use thiserror::Error;
 use crate::voices::DEFAULT_VOICE;
 
 /// Directory inside the home directory that holds the configuration file.
-pub const APP_DIR: &str = ".mimo-tts-mcp";
+pub const APP_DIR: &str = ".mimo-tts";
 /// Name of the JSON configuration file.
 pub const CONFIG_FILE: &str = "config.json";
 
 /// Environment variables; they take precedence over the configuration file.
 pub const ENV_API_KEY: &str = "MIMO_API_KEY";
-pub const ENV_CONFIG_PATH: &str = "MIMO_TTS_MCP_CONFIG";
-pub const ENV_BASE_URL: &str = "MIMO_TTS_MCP_BASE_URL";
-pub const ENV_MODEL: &str = "MIMO_TTS_MCP_MODEL";
-pub const ENV_VOICE: &str = "MIMO_TTS_MCP_VOICE";
-pub const ENV_AUDIO_FORMAT: &str = "MIMO_TTS_MCP_AUDIO_FORMAT";
+pub const ENV_CONFIG_PATH: &str = "MIMO_TTS_CONFIG";
+pub const ENV_BASE_URL: &str = "MIMO_TTS_BASE_URL";
+pub const ENV_MODEL: &str = "MIMO_TTS_MODEL";
+pub const ENV_VOICE: &str = "MIMO_TTS_VOICE";
+pub const ENV_AUDIO_FORMAT: &str = "MIMO_TTS_AUDIO_FORMAT";
 
 /// Base URL of the OpenAI-compatible MiMo endpoint.
 pub const DEFAULT_BASE_URL: &str = "https://api.xiaomimimo.com/v1";
@@ -143,7 +143,7 @@ pub fn default_config_path() -> PathBuf {
     }
 }
 
-/// Resolve the configuration file path, honouring the `MIMO_TTS_MCP_CONFIG` override.
+/// Resolve the configuration file path, honouring the `MIMO_TTS_CONFIG` override.
 pub fn resolve_config_path() -> PathBuf {
     match non_blank(env::var(ENV_CONFIG_PATH).ok()) {
         Some(value) => PathBuf::from(value),
